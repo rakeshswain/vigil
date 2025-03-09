@@ -4,37 +4,39 @@ I'll outline a comprehensive plan for building your multi-agent application for 
 System Architecture
 
 img
-
+![alt text](img/arc.jpg)
 
 Component Breakdown
+
 1. Frontend (Simple Chat Interface)
-HTML/CSS/JavaScript-based chat interface
-Input area for user instructions
-Display area for agent responses and test results
-Visual indicators for test status (running, passed, failed)
+   HTML/CSS/JavaScript-based chat interface
+   Input area for user instructions
+   Display area for agent responses and test results
+   Visual indicators for test status (running, passed, failed)
 
 2. Agent Router
-Analyzes user instructions to determine if it's a web testing or API testing task
-Routes the request to the appropriate agent
-Handles agent communication and response formatting
+   Analyzes user instructions to determine if it's a web testing or API testing task
+   Routes the request to the appropriate agent
+   Handles agent communication and response formatting
 
 3. Web Testing Agent
-Processes natural language instructions for web testing
-Converts instructions into Playwright test scripts
-Executes tests and captures results (screenshots, logs, etc.)
-Provides detailed step-by-step reporting
+   Processes natural language instructions for web testing
+   Converts instructions into Playwright test scripts
+   Executes tests and captures results (screenshots, logs, etc.)
+   Provides detailed step-by-step reporting
 
 4. API Testing Agent
-Processes API testing instructions
-Generates API test cases (including additional ones beyond what's specified)
-Validates responses, status codes, and data structures
-Provides comprehensive test reports
+   Processes API testing instructions
+   Generates API test cases (including additional ones beyond what's specified)
+   Validates responses, status codes, and data structures
+   Provides comprehensive test reports
 
 5. MCP Integration
-Uses MCP Python SDK for agent communication
-Implements tools for test execution and reporting
-Enables agents to share context and collaborate
+   Uses MCP Python SDK for agent communication
+   Implements tools for test execution and reporting
+   Enables agents to share context and collaborate
 
+![alt text](<img/tech stack.jpg>)
 
 Implementation Plan
 Phase 1: Project Setup and Basic Structure
@@ -85,7 +87,7 @@ img
 
 Key Features
 
--- Web Testing Agent Capabilities -- 
+-- Web Testing Agent Capabilities --
 Navigate to URLs
 Fill out forms
 Click buttons and links
@@ -94,7 +96,6 @@ Handle authentication flows
 Capture screenshots for visual verification
 Execute complex test scenarios
 Report detailed test steps and results
-
 
 -- API Testing Agent Capabilities --
 Send requests to endpoints (GET, POST, PUT, DELETE, etc.)
@@ -120,18 +121,20 @@ Web Testing Example:
 User: "Test the login form at https://example.com/login. Try logging in with invalid credentials and verify the error message."
 
 System: [Web Testing Agent]
+
 1. Navigating to https://example.com/login
 2. Identifying login form elements
 3. Entering invalid credentials (username: "test", password: "wrongpassword")
 4. Clicking submit button
 5. Verifying error message: "Invalid username or password"
 6. Test Result: PASSED - Error message displayed correctly
-[Screenshot attached]
+   [Screenshot attached]
 
 API Testing Example:
 User: "Test the user creation API at https://api.example.com/users with a POST request"
 
 System: [API Testing Agent]
+
 1. Sending POST request to https://api.example.com/users with sample user data
 2. Response Status: 201 Created
 3. Response Body: Valid JSON with user ID
